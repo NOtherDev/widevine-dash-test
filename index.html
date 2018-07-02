@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <base href="/"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Index</title>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>
+</head>
+<body style="background-color: gray">
+
+<div id="player"></div>
+
+<script>
+    var player = new Clappr.Player({
+        source: "https://bitmovin-a.akamaihd.net/content/art-of-motion_drm/mpds/11331.mpd",
+        plugins: [DashShakaPlayback],
+        shakaConfiguration: {
+            drm: {
+                servers: {
+                    'com.widevine.alpha': 'https://widevine-proxy.appspot.com/proxy',
+                    'com.microsoft.playready': 'https://playready.directtaps.net/pr/svc/rightsmanager.asmx?PlayRight=1&#038;ContentKey=EAtsIJQPd5pFiRUrV9Layw=='
+                }
+            }
+        },
+        parentId: "#player"
+    });
+
+
+</script>
+
+
+</body>
+</html>
